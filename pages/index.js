@@ -1,7 +1,9 @@
+import Main from "../components/Main"
+
 export default function Home() {
   return (
-    <div className="container">
-      Hello World
+    <div className="w-full">
+      <Main word={' Hello World '} />
     </div>
   )
 }
