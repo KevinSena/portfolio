@@ -1,20 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
+import AppContext from '../context/AppContext';
 
 function Main({ word }) {
   const [typing, setTyping] = useState('');
   const [index, setindex] = useState(0);
-  const [istyped, setIstyped] = useState(false)
+  const { istyped, setIstyped } = useContext(AppContext);
 
   useEffect(() => {
     if (index === word.length - 1) return;
-    const time = setTimeout(() => setindex(index + 1), 180);
-    return () => clearTimeout(index);
+    setTimeout(() => setindex(index + 1), 150);
+    clearTimeout(index);
   }, [index, word]);
 
   useEffect(() => {
     setTyping(typing + word[index]);
     if (index === word.length - 1) {
-      setIstyped(true)
+      setIstyped(true);
     }
   }, [index, word]);
 
@@ -31,22 +33,28 @@ function Main({ word }) {
           `text-lavender
           text-5xl
           duration-300
-          ${istyped ? 'opacity-100 mt-5': 'opacity-0 mt-10'}`
-          }>
-            Meu nome é Kevin de Souza Sena.
-          </div>
+          ${istyped ? 'opacity-100 mt-5' : 'opacity-0 mt-10'}`
+          }
+        >
+          Meu nome é Kevin de Souza Sena.
+        </div>
 
         <div className={
           `text-morning-blue
           text-4xl
           duration-700
-          ${istyped ? 'opacity-100 mt-5': 'opacity-0 mt-10'}`
-          }>
+          ${istyped ? 'opacity-100 mt-5' : 'opacity-0 mt-10'}`
+          }
+        >
           E esse é o meu portfólio web de projetos que venho desenvolvendo.
         </div>
       </section>
     </main>
-  )
+  );
 }
+
+Main.propTypes = {
+  word: PropTypes.string,
+}.isRequired;
 
 export default Main;
