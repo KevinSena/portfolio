@@ -6,11 +6,17 @@ import AppContext from './AppContext';
 function Provider({ children }) {
   const [istyped, setIstyped] = useState(false);
   const [y, setY] = useState(0);
+  const [screenH, setScreenH] = useState();
+
+  useEffect(() => {
+    setScreenH(window.screen.availHeight);
+  }, []);
 
   const contextValue = {
     istyped,
     setIstyped,
     y,
+    screenH,
   };
 
   const handleNavigation = (e) => {
