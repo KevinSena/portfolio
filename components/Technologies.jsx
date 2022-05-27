@@ -9,9 +9,9 @@ import {
 import AppContext from '../context/AppContext';
 
 const icons = [faTerminal, faGithub, faHtml5, faCss3, faJsSquare, faReact, faDocker, faDatabase,
-  faNodeJs, faServer, faLock, faCodeBranch, faCode, faDisplay];
+  faNodeJs, faServer, faLock, faCodeBranch, faCode, faDisplay, faDatabase];
 const techNames = ['Unix e Bash', 'Git e Github', 'HTML', 'CSS', 'JavaScript', 'React', 'Docker', 'MySQL',
-  'Node JS', 'REST API', 'Autenticação JWT', 'CI/CD e Deploy', 'TypeScript', 'POO e Solid'];
+  'Node JS', 'REST API', 'Autenticação JWT', 'CI/CD e Deploy', 'TypeScript', 'POO e Solid', 'MongoDB'];
 
 export default function Technologies() {
   const { istyped, y, screenH } = useContext(AppContext);
@@ -28,15 +28,17 @@ export default function Technologies() {
 
             {
               icons.map((icon, index) => (
-                <div className={`bg-blue-darker
-                rounded-lg flex flex-col justify-center
-                text-center
-                w-36
-                h-36
-                m-4
-                py-2
-                hover:shadow-lg
-                hover:shadow-pink`}
+                <div
+                  key={`${icon}-${Math.random()}`}
+                  className={`bg-blue-darker
+                  rounded-lg flex flex-col justify-center
+                  text-center
+                  w-36
+                  h-36
+                  m-4
+                  py-2
+                  hover:shadow-lg
+                  hover:shadow-pink hover:translate-y-4`}
                 >
                   <h4 className="text-white">{techNames[index]}</h4>
                   <FontAwesomeIcon icon={icon} className="text-6xl text-lavender p-2" />
