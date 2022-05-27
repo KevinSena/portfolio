@@ -13,6 +13,7 @@ module.exports = {
       aquamarine: '#9FFFCB',
       pink: '#ef233c',
       yellow: '#f8961e',
+      'blue-darker': '#1e293b',
     },
     extend: {
       animation: {

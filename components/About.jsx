@@ -7,12 +7,9 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className={istyped ? `
-        h-screen
-      bg-dark-blue
-      ` : 'hidden'}
+      className={istyped ? 'py-64 bg-dark-blue' : 'hidden'}
     >
-      <div className="max-w-5xl mx-auto min-h-full flex flex-col justify-center transition-all">
+      <div className="max-w-5xl mx-auto min-h-full flex flex-col justify-center">
         <div className={y >= screenH * 0.3 ? 'animate-fadeIn' : 'hidden'}>
           <h2 className="text-light-green text-3xl">{'<sobre>'}</h2>
           <div className="flex flex-row items-center">

@@ -9,10 +9,11 @@ function Header({ menu }) {
   useEffect(() => {
     if (y < screenH * 0.3) setLocal('');
     if (y >= screenH * 0.3) setLocal('sobre');
+    if (y >= screenH * 1.3) setLocal('tecnologias');
   }, [y]);
 
   return (
-    <header className={`transition w-full fixed bg-opacity-70 backdrop-blur-sm ${y > 0 && 'shadow-lg'} ${istyped ? 'opacity-100' : 'opacity-0 h-0'}`}>
+    <header className={`z-10 transition w-full fixed bg-opacity-70 backdrop-blur-sm ${y > 0 && 'shadow-lg'} ${istyped ? 'opacity-100' : 'opacity-0 h-0'}`}>
       <div className="flex justify-between lg:px-32 py-5">
         <h1 className="text-white font-bold text-2xl">Kevin Sena</h1>
         <ul className="flex flex-row">
